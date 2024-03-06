@@ -2,6 +2,26 @@ const output = document.getElementById('output');
 
 /* STEP 1: Create an object (looks a lot like declaring a variable, but with empty braces), 
 then open this page in a browser and enter 'person' in the console */
+let person = {
+    name: {firstName: "Bob", lastName: "Loblaw"},
+    age: 27,
+    "Fred": "John",
+    22:23,
+    address: {
+        streetNo: 100,
+        streetName: "Georgian Drive",
+        city: "Barrie"
+    },
+    interests: ["painting", "swimming", "coding"],
+    greeting: function() {
+        alert(`Hello, ${this.name}, how are you?`)
+    },
+    bio: function() {
+        return `The interests of ${this.name.firstName}, of age ${this.age} are ${this.interests.toString()}`;
+    }
+    
+
+}
 
 /* STEP 2a: Add other data items to the above object, like name, age, gender, address, and interests */
 
@@ -46,12 +66,33 @@ objects that are built this way are often referred to as associative arrays */
 
 /* STEP 10: We can also dynamically set both names and values for objects… */
 
+// We can dynamically set keys with square brackets
+// Note that if we use numbers as keys, we have to access the value with, eg., person2[1] rather than person2.1
+
+var person2 = {};
+for (let i = 0; i<5; i++){
+    person2[i] = i;
+}
+
 /* STEP 11a: 'this' is very useful - it allows us to refer to the object in question, specifically. 
 This will become much clearer later in the course. Create two new objects, 
 each with a name, and a function that outputs the name */
 
 /* STEP 11b: Call up both person1.hello() and person2.hello() 
 in the console to see how 'this' is specific to each object */
+
+let person1 = {
+    name:"P1",
+    hello: function(){
+        alert(`Hello from ${this.name}`)
+    }
+}
+let person2 = {
+    name:"P2",
+    hello: function(){
+        alert(`Hello from ${this.name}`)
+    }
+}
 
 // You have already been using objects all along:
 let myString = 'Words, words, words.'; // this creates an instance of the class String
